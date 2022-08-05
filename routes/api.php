@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServiceController;
+use App\Models\Service;
+use App\Http\Resources\ServiceResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,28 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('service',function (){
+    $service = Service::all();
+    return new ServiceResource($service);
+});
+
+Route::get('customer',function (){
+    $customer = \App\Models\Customer::all();
+    return new \App\Http\Resources\CustomerResource($customer);
+});
+
+
+
+
+
+/*Route::get('service',[ServiceController::class,'index']);
+Route::post('service/create',[ServiceController::class,'store']);
+Route::put('service/{id}',[ServiceController::class,'update']);
+Route::delete('service/{id}',[ServiceController::class,'destroy']);*/
+
+
+
+
+
