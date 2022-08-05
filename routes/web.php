@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::prefix('admin')->group(function (){
+    Route::get('/',[AuthController::class,'loginPage'])
+        ->name('admin.login');
+
+    Route::get('logout',[AuthController::class,'logout'])
+    ->name('admin.logout');
+
+    Route::post('login',[AuthController::class,'authendticate'])
+        ->name('admin.authenticate');
+});
+
+
+Route::middleware(['admin'])->group(function (){
+    //Route::resource('service',ServiceController::class);
+
+    //Route::resource('customer',CustomerController::class);
+});
+
+
+Route::resource('customer',CustomerController::class);
+
+Route::resource('service',ServiceController::class);
+
+Route::get('/json-regencies/{plate}',[ServiceController::class,'regencies']);

@@ -24,7 +24,7 @@ return [
     |
     | This value determines the "environment" your application is currently
     | running in. This may determine how you prefer to configure various
-    | services the application utilizes. Set this in your ".env" file.
+    | service the application utilizes. Set this in your ".env" file.
     |
     */
 
@@ -149,7 +149,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | The service providers listed here will be automatically loaded on the
-    | request to your application. Feel free to add your own services to
+    | request to your application. Feel free to add your own service to
     | this array to grant expanded functionality to your applications.
     |
     */
@@ -181,6 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        yajra\Datatables\DatatablesServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -210,6 +211,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Datatables' => yajra\Datatables\Datatables::class,
     ])->toArray(),
 
 ];
