@@ -76,11 +76,14 @@ class ServiceController extends Controller
         }
 
 
+
         $province = Province::find($request->province);
+        $town = Town::find($request->town);
+
         $service = Service::create([
             'service_plate' => $request->service_plate,
             'province' => $province->title,
-            'town' => $request->town,
+            'town' => $town->name,
             'service_file' => $file_name,
             'description' => $request->description,
             'customer_id' => null,

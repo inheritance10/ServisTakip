@@ -43,7 +43,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <select name="town" class="form-control" id="regencies">
-                                    <option value="0">Choice Town</option>
+                                    <option>Choice Town</option>
                                 </select>
                             </div>
                         </div>

@@ -145,6 +145,22 @@
 
 <script src="https://cdn.datatables.net/fixedcolumns/4.1.0/js/dataTables.fixedColumns.min.js"></script>
 
+<script type="text/javascript">
+    $('#provinces').on('change', function(e){
+        var plate = e.target.value;
+        console.log(e);
+
+        $.get('/json-regencies/' + plate,function(data) {
+            console.log(data);
+            $('#regencies').empty();
+            $('#regencies').append('<option value="0" disable="true" selected="true">Choice Town</option>');
+
+            $.each(data, function(index, regenciesObj){
+                $('#regencies').append('<option value="'+ regenciesObj.city_id +'">'+ regenciesObj.name +'</option>');
+            })
+        });
+    });
+</script>
 
 
 

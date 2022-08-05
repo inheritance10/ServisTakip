@@ -55,27 +55,12 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <select name="town" class="form-control" id="regencies">
-                                    <option value="0">Choice Town</option>
+                                    <option>Choice Town</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                    <script type="text/javascript">
-                        $('#provinces').on('change', function(e){
-                            var plate = e.target.value;
-
-                            $.get('/json-regencies?plate=' + plate,function(data) {
-                                console.log(data);
-                                $('#regencies').empty();
-                                $('#regencies').append('<option value="0" disable="true" selected="true">Choice Town</option>');
-
-                                $.each(data, function(index, regenciesObj){
-                                    $('#regencies').append('<option value="'+ regenciesObj.city_id +'">'+ regenciesObj.name +'</option>');
-                                })
-                            });
-                        });
-                    </script>
 
                     <div class="form-group">
                         <label>Description</label>

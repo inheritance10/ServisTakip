@@ -45,3 +45,5 @@ Route::resource('customer',CustomerController::class);
 Route::resource('service',ServiceController::class);
 
 Route::get('/json-regencies/{plate}',[ServiceController::class,'regencies']);
+
+
